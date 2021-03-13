@@ -17,9 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'name', 'email', 'password', 'sex', 'birth_date', 'city', 'state',
     ];
 
     /**
@@ -40,4 +38,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function steps()
+    {
+        return $this->hasMany(Step::class);
+    }
+
+    public function friends()
+    {
+        return $this->belongsToMany('App\User', 'friends')
+                    ->as('friends')
+                    ->withTimestamps();
+    }
+    
 }
