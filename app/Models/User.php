@@ -43,12 +43,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Step::class);
     }
-
-    public function friends()
-    {
-        return $this->belongsToMany('App\User', 'friends')
-                    ->as('friends')
-                    ->withTimestamps();
-    }
     
+    public function friends()
+	{
+		return $this->belongsToMany( User::class, 'friends', 'user_id', 'friend_id')->as('friends')->withTimestamps();
+	}
 }

@@ -20,5 +20,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('steps', App\Http\Controllers\StepsController::class);
-
+Route::resources([
+    'steps'     => App\Http\Controllers\StepsController::class,
+    'user.friends'  => App\Http\Controllers\FriendController::class,
+]);

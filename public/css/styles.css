@@ -43,6 +43,10 @@ html, body {
     text-transform: uppercase;
 }
 
+a.dropdown-item {
+    color: rgba(0,0,0,.5);
+}
+
 a.dropdown-item.active:before {
     font-family: "Font Awesome 5 Free";
     content: '\f105';
@@ -78,3 +82,4 @@ footer{
 .footer p{
     text-align:center;
 }
+
